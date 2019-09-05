@@ -1,0 +1,54 @@
+---
+project: 'spark model runner'
+project_creation_date: '2019-08-29'
+lifecycle_state: 'production'
+project_category: ''
+project_lead: &acumos_spark-model-runner_ptl
+    name: 'Philippe Dooze'
+    email: 'philippe.dooze@orange.com'
+    id: 'philippDo'
+    company: 'Orange'
+    timezone: 'Europe/Paris'
+primary_contact: *acumos_spark-model-runner_ptl
+issue_tracking:
+    type: 'jira'
+    url: 'https://jira.acumos.org'
+    key: ''
+mailing_list:
+    type: 'groups.io'
+    url: 'acumosai-onboarding@lists.lfai.foundation'
+    tag: '<[sub-project_name]>'
+realtime_discussion: ''
+meetings:
+    - type: 'zoom'
+      agenda: 'Tuesday & Thursday'
+      url: 'https://zoom.us/j/9266141474'
+      server: 'n/a'
+      channel: 'n/a'
+      repeats: 'weekly'
+      time: '8:30 am EST time'
+repositories:
+    - 'spark-model-runner'
+committers:
+    - <<: *acumos_spark-model-runner_ptl
+    - name: 'Mukhtar Shaik'
+      email: 'sx00352475@techmahindra.com'
+      company: 'TechMahindra'
+      id: 'mukhtar'
+      timezone: 'Asia/kolkata'
+    - name: 'Jabeen Shaik'
+      email: 'js00353493@techmahindra.com'
+      company: 'TechMahindra'
+      id: 'Jabeen'
+      timezone: 'Asia/kolkate'
+    - name: 'Aditya Soni'
+      email: 'AS00595133@TechMahindra.com'
+      company: 'TechMahindra'
+      id: 'Aditya'
+      timezone: 'Asia/kolkata'
+tsc:
+    approval: 'https://wiki.acumos.org/display/TSC#AcumosAIProjectTechnicalSteeringCommittee(TSC)-20190826'
+    changes:
+        - type: 'Creation'
+          name: 'Philippe Dooze'
+          link: 'https://wiki.acumos.org/pages/viewpage.action?pageId=20549108'
