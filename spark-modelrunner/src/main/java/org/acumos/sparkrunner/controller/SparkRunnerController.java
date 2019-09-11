@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.regex.Matcher;
@@ -51,14 +55,14 @@ public class SparkRunnerController {
 	@RequestMapping(value = "/getConfig", method = RequestMethod.GET)
 	public Object configTemplate() {
 		Object config = null;
-		String file = "D:\\kr00587214\\TECHM\\sparkIO\\Request.json";
+		String file = File.separator + "app" + File.separator + "request.json";
 		JSONParser jsonParser = new JSONParser(); 
 		
 		try{
 			config = (Object) jsonParser.parse(new FileReader(file));
 		} catch(Exception e) {
 			
-			log.error("Template file is missing", e);
+			log.error("File is missing", e.getMessage());
 		}
 		return config;
 	}
@@ -79,7 +83,7 @@ public class SparkRunnerController {
 			jsonConf.setJsonConfig(conf);
 
 		} catch (IOException e) {
-			log.error("File is empty", e);
+			log.error("IOException from file upload", e.getMessage());
 		}
 		return new ResponseEntity<Object>("File Uploaded succesfully", HttpStatus.OK);
 	}
@@ -100,6 +104,17 @@ public class SparkRunnerController {
 			config.setConfig(content);
 			configs = config.getConfig();
 			url = jsonConf.urlSpark();
+			URL siteURL = new URL(url);
+			HttpURLConnection connection = (HttpURLConnection) siteURL.openConnection();
+			connection.setRequestMethod("GET");
+			connection.setReadTimeout(30000);
+			connection.connect();
+			int responseCode = connection.getResponseCode();
+			String responseMessage=connection.getResponseMessage();
+			if(responseMessage == "404")
+			{
+				throw new Exception();
+			}
 			RestTemplate restTemplate = new RestTemplate();
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
@@ -109,33 +124,24 @@ public class SparkRunnerController {
 	
 		}
 		
+		catch(MalformedURLException mfue) {
+			log.error("MalformedURLException from http connect : " + mfue.getMessage());
+		}
+		
+		catch(ProtocolException pe) {
+			log.error("ProtocolException from http connect : " + pe.getMessage());
+		}
+		
+		catch(IOException ioe) {
+			log.error("IOException from http connect : " + ioe.getMessage());
+		}
 
 		catch (Exception e) {
-			log.error("Input is not set", e.getMessage());
+			log.error("Exception from spark master :", e.getMessage());
 		}
 		
 		return result;
 	}
 	
 	
-	@RequestMapping(value = "/checkSparkURL", method = RequestMethod.GET)
-	public String checkURL(String url) { 
-	String result = null;
-	try {
-		RestTemplate restTemplate = new RestTemplate();
-		result = restTemplate.getForObject((jsonConf.masterUrl())+URL_CONFIG, String.class);
-		url = url.substring(0, url.length() - 4)+"7077";
-		JSONObject json = new JSONObject(result);
-		result = json.getString("url");
-		if(url.equals(result)) {
-			result = "It is available!!";
-		}
-		else {
-			result = "Not available";
-		}
-	} catch (Exception e) {
-		log.error("Spark master URL not provided", e);
-	}
-	return result;
-	}
 }

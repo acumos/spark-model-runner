@@ -1,4 +1,4 @@
-package org.acumos.protobuff.common;
+package org.acumos.protobuf.common;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
-import org.gaia.protobuf.common.util.Constants;
-import org.gaia.protobuf.common.util.ProtobufUtil;
-import org.gaia.protobuf.common.vo.protobuf.Protobuf;
-import org.gaia.protobuf.common.vo.protobuf.ProtobufMessage;
-import org.gaia.protobuf.common.vo.protobuf.ProtobufMessageField;
-import org.gaia.protobuf.common.vo.protobuf.ProtobufService;
-import org.gaia.protobuf.common.vo.protobuf.ProtobufServiceOperation;
+import org.acumos.protobuf.common.util.ProtobufUtil;
+import org.acumos.protobuf.common.util.Constants;
+import org.acumos.protobuf.common.vo.protobuf.Protobuf;
+import org.acumos.protobuf.common.vo.protobuf.ProtobufMessage;
+import org.acumos.protobuf.common.vo.protobuf.ProtobufMessageField;
+import org.acumos.protobuf.common.vo.protobuf.ProtobufService;
+import org.acumos.protobuf.common.vo.protobuf.ProtobufServiceOperation;
 
 import com.github.os72.protobuf.dynamic.DynamicSchema;
 import com.github.os72.protobuf.dynamic.MessageDefinition;

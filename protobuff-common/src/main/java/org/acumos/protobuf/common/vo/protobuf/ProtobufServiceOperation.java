@@ -1,4 +1,4 @@
-package org.acumos.protobuff.common.vo.protobuf;
+package org.acumos.protobuf.common.vo.protobuf;
 
 import java.io.Serializable;
 import java.util.List;

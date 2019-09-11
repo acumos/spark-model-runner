@@ -1,15 +1,15 @@
-package org.acumos.protobuff.common.util;
+package org.acumos.protobuf.common.util;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import org.gaia.protobuf.common.vo.protobuf.Protobuf;
-import org.gaia.protobuf.common.vo.protobuf.ProtobufMessage;
-import org.gaia.protobuf.common.vo.protobuf.ProtobufMessageField;
-import org.gaia.protobuf.common.vo.protobuf.ProtobufOption;
-import org.gaia.protobuf.common.vo.protobuf.ProtobufService;
-import org.gaia.protobuf.common.vo.protobuf.ProtobufServiceOperation;
+import org.acumos.protobuf.common.vo.protobuf.Protobuf;
+import org.acumos.protobuf.common.vo.protobuf.ProtobufMessage;
+import org.acumos.protobuf.common.vo.protobuf.ProtobufMessageField;
+import org.acumos.protobuf.common.vo.protobuf.ProtobufOption;
+import org.acumos.protobuf.common.vo.protobuf.ProtobufService;
+import org.acumos.protobuf.common.vo.protobuf.ProtobufServiceOperation;
 
 
 public class ProtobufUtil {

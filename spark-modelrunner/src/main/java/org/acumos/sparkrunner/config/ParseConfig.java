@@ -40,7 +40,7 @@ public class ParseConfig {
 		return ("http"+url.substring(5));
 	}
 	
-	public String checkUrl() {
+	/*public String checkUrl() {
 		url = (String) modelConfig.getJSONObject("sparkProperties").get("spark.master");
 		return (url.substring(0, url.length() - 4)+"7077");
 	}
@@ -50,9 +50,9 @@ public class ParseConfig {
 		System.out.println(url);
 		url = url.substring(0, url.length() - 4)+"8080"; 
 		return ("http"+url.substring(5));
-	}
+	}*/
 	
-	public String getPath(JSONObject jsonConfig) {
+/*	public String getPath(JSONObject jsonConfig) {
 		String path = (String) jsonConfig.getJSONObject("volume").getString("volume.Output");	
 		System.out.println(path);
 		return path;
@@ -62,7 +62,7 @@ public class ParseConfig {
 		String path = (String) jsonConfig.getJSONObject("volume").getString("volume.Input");
 		System.out.println(path);
 		return path;
-	}
+	}*/
 	
 	public void setArgs(String data) {
 		args.put(data);

@@ -5,9 +5,20 @@
     <artifactId>spark-model-runner</artifactId>
     <version>0</version>
   </parent>
-  <artifactId>protobuff-common</artifactId>
+  <artifactId>protobuf-common</artifactId>
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- For distributionManagement section -->
+		<acumos.nexus.url>https://nexus.acumos.org</acumos.nexus.url>
+		<!-- Jenkins invokes mvn with argument -Dbuild.number=${BUILD_NUMBER} -->
+		<build.number>0</build.number>
+		<eelf.version>1.0.0</eelf.version>
+		<jacocoVersion>0.7.6.201602180812</jacocoVersion>
+		<sonar.exclusions>**/scripts/**/*,**.js</sonar.exclusions>
+		<sonar.test.exclusions>**/test/**/*,**/tests/**/*</sonar.test.exclusions>
+		<enforcer.skip>false</enforcer.skip>
+		<mockito.version>1.10.19</mockito.version>
   </properties>
 
   <dependencies>
@@ -16,7 +27,7 @@
 	<dependency>
 		<groupId>com.google.protobuf</groupId>
 		<artifactId>protobuf-java</artifactId>
-		<version>3.3.1</version>
+		<version>3.9.1</version>
 	</dependency>
 
 	<dependency>
@@ -28,56 +39,57 @@
   
   <build>
   	<plugins>
-  		<plugin>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>license-maven-plugin</artifactId>
-			<version>1.14</version>
-			<configuration>
-				<licenseName>GAiA</licenseName>
-				<licenseResolver>${project.baseUri}/src/license</licenseResolver>
-				<addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
-				<processStartTag>===============LICENSE_START=======================================================</processStartTag>
-				<processEndTag>===============LICENSE_END=========================================================</processEndTag>
-				<sectionDelimiter>===================================================================================</sectionDelimiter>
-				<inceptionYear>2019</inceptionYear>
-				<organizationName><![CDATA[Tech Mahindra. All rights reserved.]]></organizationName>
-				<projectName>GAiA</projectName>
-				<canUpdateCopyright>true</canUpdateCopyright>
-				<canUpdateDescription>true</canUpdateDescription>
-				<canUpdateLicense>true</canUpdateLicense>
-				<emptyLineAfterHeader>true</emptyLineAfterHeader>
-			</configuration>
-		</plugin>
-		<!-- Require Java 1.8 -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>1.14</version>
+				<configuration>
+					<licenseName>acumos</licenseName>
+					<licenseResolver>${project.baseUri}/src/license</licenseResolver>
+					<addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+					<processStartTag>===============LICENSE_START=======================================================</processStartTag>
+					<processEndTag>===============LICENSE_END=========================================================</processEndTag>
+					<sectionDelimiter>===================================================================================</sectionDelimiter>
+					<inceptionYear>2017</inceptionYear>
+					<organizationName><![CDATA[AT&T Intellectual Property & Tech Mahindra. All rights reserved.]]></organizationName>
+					<projectName>Acumos</projectName>
+					<canUpdateCopyright>true</canUpdateCopyright>
+					<canUpdateDescription>true</canUpdateDescription>
+					<canUpdateLicense>true</canUpdateLicense>
+					<emptyLineAfterHeader>true</emptyLineAfterHeader>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </execution>
+            </executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
+				<!-- Spring sets the <version></version> -->
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<fork>true</fork>
 				</configuration>
 			</plugin>
-			<!-- Generate javadoc jar; see profile for Java 8 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.3</version>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<!-- add build information to manifest. Java provides access to the implementation 
-				version for a package, so cram the build number into there. -->
+			<!-- Add the build number to the jar manifest. Spring-Boot uses a complex 
+				packaging process that makes access to the original Manifest.MF very difficult. 
+				However, Java provides access to the implementation version for a package, 
+				so cram the build number into there. -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.5</version>
+				<!-- Spring sets the <version>2.5</version> -->
 				<configuration>
 					<archive>
 						<manifest>
@@ -89,7 +101,28 @@
 					</archive>
 				</configuration>
 			</plugin>
-  	</plugins>
+			<!-- <plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.9</version>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
+			
+		</plugins>
   </build>
   <!-- The client jar must be deployed to Nexus. The IDs must match Jenkins 
 		settings for credentials. -->

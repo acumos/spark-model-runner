@@ -1,4 +1,4 @@
-package org.acumos.protobuff.common;
+package org.acumos.protobuf.common;
 
 public interface ProtoService {
 	
