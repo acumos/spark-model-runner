@@ -1,13 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.acumos.sparkrunner</groupId>
-    <artifactId>spark-model-runner</artifactId>
-    <version>0</version>
-  </parent>
-  <artifactId>protobuf-common</artifactId>
-  <properties>
-        <java.version>1.8</java.version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.acumos.sparkrunner</groupId>
+		<artifactId>spark-model-runner</artifactId>
+		<version>0</version>
+	</parent>
+	<artifactId>protobuf-common</artifactId>
+	<properties>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- For distributionManagement section -->
 		<acumos.nexus.url>https://nexus.acumos.org</acumos.nexus.url>
@@ -19,26 +20,26 @@
 		<sonar.test.exclusions>**/test/**/*,**/tests/**/*</sonar.test.exclusions>
 		<enforcer.skip>false</enforcer.skip>
 		<mockito.version>1.10.19</mockito.version>
-  </properties>
+	</properties>
 
-  <dependencies>
-	  
-	<!-- For Dynamic protobuf message construction -->
-	<dependency>
-		<groupId>com.google.protobuf</groupId>
-		<artifactId>protobuf-java</artifactId>
-		<version>3.9.1</version>
-	</dependency>
+	<dependencies>
 
-	<dependency>
-		<groupId>com.github.os72</groupId>
-		<artifactId>protobuf-dynamic</artifactId>
-		<version>0.9.4</version>
-	</dependency>
-  </dependencies>
-  
-  <build>
-  	<plugins>
+		<!-- For Dynamic protobuf message construction -->
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>3.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.os72</groupId>
+			<artifactId>protobuf-dynamic</artifactId>
+			<version>0.9.4</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
@@ -63,15 +64,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<executions>
-                <execution>
-                    <goals>
-                        <goal>repackage</goal>
-                    </goals>
-                    <configuration>
-                        <skip>true</skip>
-                    </configuration>
-                </execution>
-            </executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -101,30 +102,15 @@
 					</archive>
 				</configuration>
 			</plugin>
-			<!-- <plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.9</version>
-				<executions>
-					<execution>
-						<id>default-prepare-agent</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>default-report</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin> -->
-			
+			<!-- <plugin> <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId> 
+				<version>0.7.9</version> <executions> <execution> <id>default-prepare-agent</id> 
+				<goals> <goal>prepare-agent</goal> </goals> </execution> <execution> <id>default-report</id> 
+				<phase>prepare-package</phase> <goals> <goal>report</goal> </goals> </execution> 
+				</executions> </plugin> -->
+
 		</plugins>
-  </build>
-  <!-- The client jar must be deployed to Nexus. The IDs must match Jenkins 
+	</build>
+	<!-- The client jar must be deployed to Nexus. The IDs must match Jenkins 
 		settings for credentials. -->
 	<distributionManagement>
 		<repository>
@@ -140,5 +126,5 @@
 			<url>dav:${acumos.nexus.url}/content/sites/site/${project.groupId}/${project.artifactId}/${project.version}</url>
 		</site>
 	</distributionManagement>
-  
+
 </project>
