@@ -1,0 +1,10 @@
+org\acumos\protobuf\common\vo\protobuf\ProtobufServiceOperation.class
+org\acumos\protobuf\common\vo\protobuf\ProtobufMessage.class
+org\acumos\protobuf\common\vo\protobuf\Protobuf.class
+org\acumos\protobuf\common\ProtoServiceBase.class
+org\acumos\protobuf\common\ProtoService.class
+org\acumos\protobuf\common\vo\protobuf\ProtobufOption.class
+org\acumos\protobuf\common\util\Constants.class
+org\acumos\protobuf\common\vo\protobuf\ProtobufMessageField.class
+org\acumos\protobuf\common\vo\protobuf\ProtobufService.class
+org\acumos\protobuf\common\util\ProtobufUtil.class
