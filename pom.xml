@@ -15,7 +15,7 @@
     </properties>
     <modules>
         <!-- Child modules do NOT name this parent. -->
-        <module>protobuff-common</module>
+        <module>protobuf-common</module>
         <module>spark-modelrunner</module>
     </modules>
     <build>
