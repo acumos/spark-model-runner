@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.acumos.sparkrunner</groupId>
 	<artifactId>spark-modelrunner</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>spark modelrunner</name>
 	
@@ -129,6 +129,7 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<!-- Spring sets the <version>2.5</version> -->
 				<configuration>
+					<source>8</source>
 					<archive>
 						<manifest>
 							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>

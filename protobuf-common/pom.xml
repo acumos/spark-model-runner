@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.acumos.sparkrunner</groupId>
 	<artifactId>protobuf-common</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>protobuf common jar</name>
 
@@ -92,6 +92,7 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<!-- Spring sets the <version>2.5</version> -->
 				<configuration>
+					 <source>8</source>
 					<archive>
 						<manifest>
 							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
@@ -102,6 +103,7 @@
 					</archive>
 				</configuration>
 			</plugin>
+			 			
 		</plugins>
 	</build>
 
