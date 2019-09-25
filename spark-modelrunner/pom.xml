@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.acumos.sparkrunner</groupId>
 	<artifactId>spark-modelrunner</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>spark modelrunner</name>
 	
@@ -139,6 +139,25 @@
 					</archive>
 				</configuration>
 			</plugin>
+			
+		<!-- Generate javadoc jar; see profile for Java 8 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.1.1</version>
+				<configuration>
+					<source>${java.version}</source>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
 			
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
