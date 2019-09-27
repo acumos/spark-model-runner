@@ -12,7 +12,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+		<!--<java.version>1.8</java.version> -->
 		<docker.image.prefix>springio</docker.image.prefix>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- For distributionManagement section -->
@@ -116,11 +116,13 @@
 			</plugin> -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+                                <version>3.8.0</version>
 				<!-- Spring sets the <version></version> -->
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<fork>true</fork>
+					<!-- <source>1.8</source>
+					<target>1.8</target> -->
+					<release>11</release>
+					<!-- <fork>true</fork>-->
 				</configuration>
 			</plugin>
 			
@@ -138,6 +140,30 @@
 						</manifestEntries>
 					</archive>
 				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.1.1</version>
+
+				<!-- spring chooses the <version>x</version> -->
+				<configuration>
+					<!-- during upgrade to jdk 11 
+					found that portal-fe javadoc build fails due to 
+					issues with different spring versions and only one is being used
+					by the javadoc:aggregate job-->	
+					<skip>true</skip>
+					<aggregate>false</aggregate>	<!-- this enables aggretation -->
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			
 			<plugin>
