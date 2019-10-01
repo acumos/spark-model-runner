@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e4b29e3_de70cab4",
+        "filename": "pom.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 290
+      },
+      "writtenOn": "2019-10-01T16:08:55Z",
+      "side": 1,
+      "message": "Remove this config - doesn\u0027t work in java 11 javadocs",
+      "revId": "8fbeb9fad9669ce9305b670e27597b99fc6b470c",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
