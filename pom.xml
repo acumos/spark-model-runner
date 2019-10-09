@@ -7,7 +7,7 @@
     <version>0</version>
     <packaging>pom</packaging>
     <name>Spark Model Runner</name>
-    <description>Model Runner For Spark</description>
+    <description>Model Runner for Spark</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
