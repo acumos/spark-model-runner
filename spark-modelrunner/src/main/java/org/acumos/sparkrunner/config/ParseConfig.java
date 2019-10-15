@@ -40,33 +40,20 @@ public class ParseConfig {
 		return ("http"+url.substring(5));
 	}
 	
-	/*public String checkUrl() {
-		url = (String) modelConfig.getJSONObject("sparkProperties").get("spark.master");
-		return (url.substring(0, url.length() - 4)+"7077");
-	}
-	
-	public String hitUrl() {
-		url = (String) modelConfig.getJSONObject("sparkProperties").get("spark.master");
-		System.out.println(url);
-		url = url.substring(0, url.length() - 4)+"8080"; 
-		return ("http"+url.substring(5));
-	}*/
-	
-/*	public String getPath(JSONObject jsonConfig) {
-		String path = (String) jsonConfig.getJSONObject("volume").getString("volume.Output");	
-		System.out.println(path);
-		return path;
-	}
-	
-	public String getInputPath(JSONObject jsonConfig) {
-		String path = (String) jsonConfig.getJSONObject("volume").getString("volume.Input");
-		System.out.println(path);
-		return path;
-	}*/
+
 	
 	public void setArgs(String data) {
-		args.put(data);
-		modelConfig.put("appArgs", args);
+		JSONObject object = new JSONObject (data);
+		JSONArray keys = object.names ();
+		JSONArray jsonArr = new JSONArray();
+		
+		for (int i = 0; i < keys.length (); ++i) {
+
+			   String key = keys.getString (i); 
+			   String value = object.getString (key);
+			   System.out.println(value);
+			   modelConfig.put("appArgs", jsonArr.put(value));
+			}
 	}
 	
 }
