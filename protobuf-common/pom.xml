@@ -36,6 +36,13 @@
 			<artifactId>protobuf-dynamic</artifactId>
 			<version>0.9.4</version>
 		</dependency>
+		
+		<dependency>
+    		<groupId>com.google.protobuf</groupId>
+    		<artifactId>protobuf-java-util</artifactId>
+    		<version>3.8.0</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
