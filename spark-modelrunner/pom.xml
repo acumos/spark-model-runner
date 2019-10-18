@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.acumos.spark-model-runner</groupId>
 	<artifactId>spark-modelrunner</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<packaging>jar</packaging>
 	<name>spark modelrunner</name>
 	<properties>
@@ -52,7 +52,7 @@
 		<dependency>
   			<groupId>org.acumos.spark-model-runner</groupId>
   			<artifactId>protobuf-common</artifactId>
-  			<version>1.0.3-SNAPSHOT</version>
+  			<version>1.0.3</version>
   		</dependency>
 		
 		<dependency>
