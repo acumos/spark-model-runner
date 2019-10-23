@@ -1,0 +1,5 @@
+---
+distribution_type: maven
+version: 1.0.3
+project:   spark-modelrunner
+log_dir: spark-model-runner-smr-maven-stage-master/34/
