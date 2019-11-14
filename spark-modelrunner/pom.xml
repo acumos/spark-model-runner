@@ -48,13 +48,13 @@
     		<artifactId>commons-io</artifactId>
     		<version>2.6</version>
 		</dependency>
-		
+
 		<dependency>
   			<groupId>org.acumos.spark-model-runner</groupId>
   			<artifactId>protobuf-common</artifactId>
   			<version>1.0.3-SNAPSHOT</version>
   		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -135,8 +135,8 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.1.1</version>
 				<configuration>
-					<!-- during upgrade to jdk 11 found that portal-fe javadoc build fails 
-						due to issues with different spring versions and only one is being used by 
+					<!-- during upgrade to jdk 11 found that portal-fe javadoc build fails
+						due to issues with different spring versions and only one is being used by
 						the javadoc:aggregate job -->
 					<skip>true</skip>
 					<aggregate>false</aggregate>	<!-- this enables aggretation -->
