@@ -1,5 +1,5 @@
 ---
 distribution_type: maven
 version: 1.0.4
-project: protobuf-common
-log_dir: spark-model-runner-pc-maven-stage-master/56/
+project: spark-modelrunner
+log_dir: spark-model-runner-smr-maven-stage-master/59/
