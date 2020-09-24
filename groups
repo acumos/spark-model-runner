@@ -2,4 +2,3 @@
 #
 42f0c83244389e408b42fa668348002012ecba46                                             	GitHub Replication
 bd712d4628f3750ef82bfaaf5ff8c8dc6b5c5f3b                                             	saml/acumos-gerrit-spark-model-runner-committers
-ldap:cn=acumos-gerrit-spark-model-runner-committers,ou=Groups,dc=freestandards,dc=org	ldap/acumos-gerrit-spark-model-runner-committers
